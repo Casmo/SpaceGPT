@@ -38,6 +38,8 @@ var enemy = {
         removeEnemy(this);
         removeBullet(bullet);
         addScore();
+        // Create an explosion of particles at the position of the enemy
+        createParticles(this.x, this.y, 20, "blue");
         return;
       }
     }
