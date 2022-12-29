@@ -8,6 +8,8 @@ var player = {
   shootInterval: 750,
   direction: 0,
 
+  color: '#f00',
+
   moveDirection: 0,
 
   // Set the size of the player
@@ -72,16 +74,18 @@ var player = {
     // Rotate the context based on the player's move direction
     ctx.rotate(this.moveDirection);
   
-    // Draw the player as a triangle
-    ctx.beginPath();
-    ctx.moveTo(-5, -5);
-    ctx.lineTo(5, 0);
-    ctx.lineTo(-5, 5);
-    ctx.closePath();
-    ctx.fillStyle = '#00f';
-    ctx.fill();
-  
-    // Restore the context
-    ctx.restore();
+    // Set the fill style to the player's color
+  ctx.fillStyle = this.color;
+
+  // Draw the player as a triangle
+  ctx.beginPath();
+  ctx.moveTo(-this.size / 2, -this.size / 2);
+  ctx.lineTo(this.size / 2, 0);
+  ctx.lineTo(-this.size / 2, this.size / 2);
+  ctx.closePath();
+  ctx.fill();
+
+  // Restore the context
+  ctx.restore();
   },
 };
