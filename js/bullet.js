@@ -17,11 +17,11 @@ function addBullet(direction) {
       this.x += Math.cos(this.direction) * this.speed;
       this.y += Math.sin(this.direction) * this.speed;
 
-      // Check if the bullet has reached the side of the screen
-      if (this.x + this.size > canvas.width || this.x < 0) {
-        // Remove the bullet from the bullets array
-        bullets.splice(bullets.indexOf(this), 1);
-      }
+      // Check if the bullet has reached the side or top/bottom of the screen
+  if (this.x + this.size > canvas.width || this.x < 0 || this.y + this.size > canvas.height || this.y < 0) {
+    // Remove the bullet from the bullets array
+    bullets.splice(bullets.indexOf(this), 1);
+  }
     },
 
     // Define the render function
