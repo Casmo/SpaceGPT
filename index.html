@@ -102,6 +102,14 @@
                 }
             }
 
+            // Update and render the powerups
+            for (var i = 0; i < powerups.length; i++) {
+                powerups[i].update();
+                if (powerups[i]) {
+                    powerups[i].render();
+                }
+            }
+
             requestAnimationFrame(gameLoop);
         }
 

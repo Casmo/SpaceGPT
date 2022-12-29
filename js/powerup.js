@@ -31,14 +31,9 @@ function addPowerup(x, y) {
       // Update the position of the powerup
       this.x += Math.cos(this.direction) * this.speed;
       this.y += Math.sin(this.direction) * this.speed;
-
-      // Check if the powerup has reached the bottom of the screen or the player
+      // Check if the powerup has reached the bottom of the screen
       if (
-        this.y + this.size > canvas.height ||
-        (this.x + this.size > player.x &&
-          this.x < player.x + player.size &&
-          this.y + this.size > player.y &&
-          this.y < player.y + player.size)
+        this.y + this.size > canvas.height
       ) {
         // Remove the powerup
         removePowerup(this);

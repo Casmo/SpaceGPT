@@ -29,6 +29,22 @@ var player = {
         player.canShoot = true;
       }, player.shootInterval);
     }
+
+    // Check if the player has hit a powerup
+    powerups.forEach(function (powerup) {
+      if (
+        player.x + player.size > powerup.x &&
+        player.x < powerup.x + powerup.size &&
+        player.y + player.size > powerup.y &&
+        player.y < powerup.y + powerup.size
+      ) {
+        // Remove the powerup
+        removePowerup(powerup);
+
+        // Increase the score
+        score++;
+      }
+    });
   },
 
   // Define the render function

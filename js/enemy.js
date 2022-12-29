@@ -20,7 +20,7 @@ var enemy = {
     if (this.x < 0 || this.x + this.size > canvas.width) {
       this.direction *= -1;
       this.speed = Math.min(this.speed + 1, 15);
-      this.y += (this.size / 2);
+      this.y += this.size / 2;
     }
 
     // Check for collisions with the bullets
@@ -44,15 +44,15 @@ var enemy = {
       }
     }
     if (checkCollision(this, player)) {
-        // Remove the enemy from the enemies array
-        enemies.splice(enemies.indexOf(this), 1);
-        addScore(-1);
-        return;
+      // Remove the enemy from the enemies array
+      enemies.splice(enemies.indexOf(this), 1);
+      addScore(-1);
+      return;
     }
     if (this.y + this.size > canvas.height) {
-        enemies.splice(enemies.indexOf(this), 1);
-        return;
-      }
+      enemies.splice(enemies.indexOf(this), 1);
+      return;
+    }
   },
 
   // Define the render function
@@ -99,5 +99,9 @@ function removeEnemy(enemy) {
   // Remove the enemy from the enemies array
   if (index > -1) {
     enemies.splice(index, 1);
+  }
+  // Add a powerup 1 in 10 times
+  if (Math.random() < 0.1) {
+    addPowerup(enemy.x, enemy.y);
   }
 }
