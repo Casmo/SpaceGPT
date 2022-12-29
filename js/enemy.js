@@ -100,8 +100,8 @@ function removeEnemy(enemy) {
   if (index > -1) {
     enemies.splice(index, 1);
   }
-  // Add a powerup 1 in 10 times
-  if (Math.random() < 0.1) {
+  // Check if a powerup should be added
+  if (Math.random() < 0.25) {
     addPowerup(enemy.x, enemy.y);
   }
 }
