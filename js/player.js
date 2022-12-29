@@ -6,12 +6,18 @@ var player = {
 
   canShoot: true,
   shootInterval: 750,
+  direction: 0,
+
+  moveDirection: 0,
 
   // Set the size of the player
   size: 50,
 
   // Define the update function
   update: function () {
+
+    this.moveDirection = Math.atan2(mouseY - this.y, mouseX - this.x);
+
     // Update the position of the player
     this.x = mouseX;
     this.y = mouseY;
