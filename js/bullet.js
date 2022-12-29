@@ -17,10 +17,10 @@ function addBullet(direction) {
       this.x += Math.cos(this.direction) * this.speed;
       this.y += Math.sin(this.direction) * this.speed;
 
-      // Remove the bullet if it reaches the top of the screen
-      if (this.y < 0) {
-        // Remove the bullet from the game
-        removeBullet(this);
+      // Check if the bullet has reached the side of the screen
+      if (this.x + this.size > canvas.width || this.x < 0) {
+        // Remove the bullet from the bullets array
+        bullets.splice(bullets.indexOf(this), 1);
       }
     },
 
