@@ -1,5 +1,5 @@
 // Define the addBullet function
-function addBullet() {
+function addBullet(direction) {
   // Create a new bullet object
   var bullet = {
     // Set the initial position of the bullet to the position of the player
@@ -9,11 +9,13 @@ function addBullet() {
     // Set the size and speed of the bullet
     size: 10,
     speed: 5,
+    direction: direction,
 
     // Define the update function
     update: function () {
-      // Update the position of the bullet
-      this.y -= this.speed;
+      // Update the position of the bullet based on the direction and speed
+      this.x += Math.cos(this.direction) * this.speed;
+      this.y += Math.sin(this.direction) * this.speed;
 
       // Remove the bullet if it reaches the top of the screen
       if (this.y < 0) {

@@ -15,7 +15,6 @@ var player = {
 
   // Define the update function
   update: function () {
-
     this.moveDirection = Math.atan2(mouseY - this.y, mouseX - this.x);
 
     // Update the position of the player
@@ -25,7 +24,7 @@ var player = {
     // Check if the mouse is down and the player is allowed to shoot
     if (mouseDown && this.canShoot) {
       // Add a new bullet
-      addBullet(this.x, this.y);
+      addBullet(this.moveDirection);
 
       // Set the canShoot flag to false
       this.canShoot = false;
