@@ -62,16 +62,26 @@ var player = {
   render: function () {
     // Get the context of the canvas
     var ctx = canvas.getContext("2d");
-
-    // Set the fill color of the player
-    ctx.fillStyle = "red";
-
-    // Draw a filled rectangle at the current position of the player
-    ctx.fillRect(
-      this.x - this.size / 2,
-      this.y - this.size / 2,
-      this.size,
-      this.size
-    );
+    
+    // Save the current context
+    ctx.save();
+  
+    // Translate the context to the player's position
+    ctx.translate(this.x, this.y);
+  
+    // Rotate the context based on the player's move direction
+    ctx.rotate(this.moveDirection);
+  
+    // Draw the player as a triangle
+    ctx.beginPath();
+    ctx.moveTo(-5, -5);
+    ctx.lineTo(5, 0);
+    ctx.lineTo(-5, 5);
+    ctx.closePath();
+    ctx.fillStyle = '#00f';
+    ctx.fill();
+  
+    // Restore the context
+    ctx.restore();
   },
 };
