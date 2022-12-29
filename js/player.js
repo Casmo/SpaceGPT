@@ -46,6 +46,12 @@ var player = {
         // Remove the powerup
         removePowerup(powerup);
 
+        // Decrease the shoot interval by 20
+        player.shootInterval -= 20;
+
+        // Clamp the shoot interval to a minimum of 100
+        player.shootInterval = Math.max(player.shootInterval, 100);
+
         // Increase the score
         score++;
       }
