@@ -8,7 +8,7 @@ var player = {
   shootInterval: 750,
   direction: 0,
 
-  color: '#f00',
+  color: "#f00",
 
   moveDirection: 0,
 
@@ -17,7 +17,11 @@ var player = {
 
   // Define the update function
   update: function () {
-    this.moveDirection = Math.atan2(mouseY - this.y, mouseX - this.x);
+    // Check if the player is moving
+    if (this.x !== mouseX || this.y !== mouseY) {
+      // Calculate the move direction of the player
+      this.moveDirection = Math.atan2(mouseY - this.y, mouseX - this.x);
+    }
 
     // Update the position of the player
     this.x = mouseX;
@@ -64,28 +68,28 @@ var player = {
   render: function () {
     // Get the context of the canvas
     var ctx = canvas.getContext("2d");
-    
+
     // Save the current context
     ctx.save();
-  
+
     // Translate the context to the player's position
     ctx.translate(this.x, this.y);
-  
+
     // Rotate the context based on the player's move direction
     ctx.rotate(this.moveDirection);
-  
+
     // Set the fill style to the player's color
-  ctx.fillStyle = this.color;
+    ctx.fillStyle = this.color;
 
-  // Draw the player as a triangle
-  ctx.beginPath();
-  ctx.moveTo(-this.size / 2, -this.size / 2);
-  ctx.lineTo(this.size / 2, 0);
-  ctx.lineTo(-this.size / 2, this.size / 2);
-  ctx.closePath();
-  ctx.fill();
+    // Draw the player as a triangle
+    ctx.beginPath();
+    ctx.moveTo(-this.size / 2, -this.size / 2);
+    ctx.lineTo(this.size / 2, 0);
+    ctx.lineTo(-this.size / 2, this.size / 2);
+    ctx.closePath();
+    ctx.fill();
 
-  // Restore the context
-  ctx.restore();
+    // Restore the context
+    ctx.restore();
   },
 };
