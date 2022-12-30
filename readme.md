@@ -16,4 +16,7 @@ I made a few adjustments like putting the code in different files and didn't cop
 
 All with all pretty impressive!
 
-I think this took me around 2 or 3 hours in total.
+I think this took me a few hours in total. the commit messages are the prompts I used.
+
+## Credits
+Robin Lamb

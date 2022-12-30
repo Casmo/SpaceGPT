@@ -65,6 +65,7 @@
         const bulletSpeedDiv = document.getElementById('bullet-speed');
         const shootIntervalDiv = document.getElementById('shoot-interval');
         const audio = new Audio("assets/alienshoot1.wav");
+        const audioPowerup = new Audio("assets/ding.wav");
         // Set the cursor style of the canvas to "none"
         canvas.style.cursor = "none";
         var player;
@@ -134,6 +135,7 @@
                     bulletSpeed += 2;
                     // Remove the powerup
                     removePowerup(powerup);
+                    audioPowerup.play();
                 } else if (powerup.type === 'shootInterval' && player.hits(powerup)) {
                     player.shootInterval -= 100;
                     if (player.shootInterval < 100) {
@@ -141,6 +143,7 @@
                     }
                     // Remove the powerup
                     removePowerup(powerup);
+                    audioPowerup.play();
                 }
                 else {
                     powerups[i].update();
