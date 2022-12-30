@@ -1,3 +1,4 @@
+let interval;
 // Create the enemy object
 var enemy = {
   // Set the initial position and size of the enemy
@@ -91,6 +92,12 @@ function addEnemy() {
 
   // Add the new enemy to the enemies array
   enemies.push(newEnemy);
+
+  // Clear the previous interval
+  clearInterval(interval);
+
+  // Set a new interval at a random time between 2 and 10 seconds
+  interval = setInterval(addEnemy, Math.random() * 8000 + 2000);
 }
 // Define the removeEnemy function
 function removeEnemy(enemy) {
