@@ -67,22 +67,19 @@ var enemy = {
     // Get the context of the canvas
     var ctx = canvas.getContext("2d");
 
-    // Set the fill color of the enemy
-    ctx.fillStyle = "blue";
-
-    // Begin drawing the path
+    ctx.fillStyle = 'blue';
     ctx.beginPath();
-
-    // Move to the top point of the triangle
-    ctx.moveTo(this.x + this.size / 2, this.y);
-
-    // Draw the left and right sides of the triangle
+    ctx.moveTo(this.x, this.y);
+    ctx.lineTo(this.x + this.size, this.y + this.size / 2);
     ctx.lineTo(this.x, this.y + this.size);
-    ctx.lineTo(this.x + this.size, this.y + this.size);
-
-    // Close the path and fill the triangle
     ctx.closePath();
     ctx.fill();
+
+    ctx.fillStyle = "white";
+    ctx.font = "16px Arial";
+    ctx.textAlign = "center";
+    ctx.fillText(this.health, this.x + this.size / 2, this.y + this.size / 2);
+
   },
 };
 
