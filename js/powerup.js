@@ -6,6 +6,7 @@ function addPowerup(x, y, type) {
     size: 20,
     speed: 2,
     color: "green",
+    type: type,
 
     // Set the initial position and direction of the powerup
     x: x,
