@@ -91,6 +91,10 @@ function createParticles(x, y, numParticles, color) {
     // Add the particle to the particles array
     particles.push(p);
   }
+  
+  // play a random audio file
+  let audio = Math.random() > 0.5 ? audio1 : audio2;
+  audio.play();
 
   // Return the particles array
   return particles;

@@ -77,6 +77,8 @@
         const shootIntervalDiv = document.getElementById('shoot-interval');
         const audio = new Audio("assets/alienshoot1.wav");
         const audioPowerup = new Audio("assets/ding.wav");
+        let audio1 = new Audio('assets/alarm.wav');
+        let audio2 = new Audio('assets/alarm2.wav');
         // Set the cursor style of the canvas to "none"
         canvas.style.cursor = "none";
         var player;
@@ -206,6 +208,8 @@
         muteUnmuteIcon.addEventListener("click", function () {
             audio.muted = !audio.muted; // toggle muted property
             audioPowerup.muted = audio.muted;
+            audio1.muted = audio.muted;
+            audio2.muted = audio.muted;
             if (audio.muted) {
                 muteUnmuteIcon.classList.add("muted");
                 muteUnmuteIcon.classList.remove("unmuted");
