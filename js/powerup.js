@@ -1,5 +1,5 @@
 // Define the addPowerup function
-function addPowerup(x, y, type='shootInterval') {
+function addPowerup(x, y, type = "shootInterval") {
   // Create a new powerup object
   var powerup = {
     // Set the size, speed, and color of the powerup
@@ -34,9 +34,7 @@ function addPowerup(x, y, type='shootInterval') {
       this.x += Math.cos(this.direction) * this.speed;
       this.y += Math.sin(this.direction) * this.speed;
       // Check if the powerup has reached the bottom of the screen
-      if (
-        this.y + this.size > canvas.height
-      ) {
+      if (this.y + this.size > canvas.height) {
         // Remove the powerup
         removePowerup(this);
       }
@@ -53,5 +51,7 @@ function removePowerup(powerup) {
   var index = powerups.indexOf(powerup);
   if (index > -1) {
     powerups.splice(index, 1);
+    bulletSpeedDiv.textContent = `Bullet Speed: ${bulletSpeed}`;
+    shootIntervalDiv.textContent = `Shoot Interval: ${player.shootInterval}`;
   }
 }

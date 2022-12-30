@@ -43,7 +43,9 @@
 
 <body>
     <div id="score"></div>
-    <div id="shoot-interval">Shoot interval:</div>
+    <!-- HTML code -->
+    <div id="bullet-speed">Bullet Speed: 3</div>
+    <div id="shoot-interval">Shoot Interval: 500</div>
     <canvas id="game-canvas"></canvas>
     <!-- Add your HTML content here -->
 
@@ -51,6 +53,9 @@
 
         // Get a reference to the canvas element
         var canvas = document.getElementById("game-canvas");
+        // JavaScript code
+        const bulletSpeedDiv = document.getElementById('bullet-speed');
+        const shootIntervalDiv = document.getElementById('shoot-interval');
         // Set the cursor style of the canvas to "none"
         canvas.style.cursor = "none";
         var player;
@@ -63,7 +68,7 @@
         var mouseDown = false;
         var mouseX = 0;
         var mouseY = 0;
-        let bulletSpeed = 10;
+        let bulletSpeed = 3;
 
         function addScore(add) {
             add = add || 1;
@@ -117,7 +122,7 @@
                 let powerup = powerups[i];
 
                 if (powerup.type === 'speedUp' && player.hits(powerup)) {
-                    bulletSpeed += 5;
+                    bulletSpeed += 2;
                     // Remove the powerup
                     removePowerup(powerup);
                 } else if (powerup.type === 'shootInterval' && player.hits(powerup)) {
