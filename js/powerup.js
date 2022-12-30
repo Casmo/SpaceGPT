@@ -1,5 +1,9 @@
 // Define the addPowerup function
 function addPowerup(x, y, type = "shootInterval") {
+  let randomNumber = Math.random();
+  if (randomNumber < 0.2) {
+    type = 'speedUp';
+  }
   // Create a new powerup object
   var powerup = {
     // Set the size, speed, and color of the powerup
