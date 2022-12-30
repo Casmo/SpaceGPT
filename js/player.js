@@ -57,7 +57,7 @@ var player = {
 
         // Clamp the shoot interval to a minimum of 100
         player.shootInterval = Math.max(player.shootInterval, 100);
-
+        document.getElementById("shoot-interval").innerHTML = "Shoot interval: " + player.shootInterval;
         // Increase the score
         score++;
       }
