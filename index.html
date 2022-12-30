@@ -46,12 +46,23 @@
             font-size: 20px;
             font-family: Arial, sans-serif;
         }
+
+        .muted {
+            /* styles for muted icon go here */
+            opacity: .5;
+        }
+
+        .unmuted {
+            /* styles for unmuted icon go here */
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body>
     <div id="score"></div>
     <!-- HTML code -->
+    <img id="mute-unmute-icon" src="assets/mute-unmute-icon.svg" alt="Mute/unmute icon">
     <div id="bullet-speed">Bullet Speed: 3</div>
     <div id="shoot-interval">Shoot Interval: 500</div>
     <canvas id="game-canvas"></canvas>
@@ -189,6 +200,21 @@
             mouseX = event.clientX;
             mouseY = event.clientY;
         });
+
+        const muteUnmuteIcon = document.getElementById("mute-unmute-icon");
+
+        muteUnmuteIcon.addEventListener("click", function () {
+            audio.muted = !audio.muted; // toggle muted property
+            audioPowerup.muted = audio.muted;
+            if (audio.muted) {
+                muteUnmuteIcon.classList.add("muted");
+                muteUnmuteIcon.classList.remove("unmuted");
+            } else {
+                muteUnmuteIcon.classList.add("unmuted");
+                muteUnmuteIcon.classList.remove("muted");
+            }
+        });
+
 
         addEnemy();
 
