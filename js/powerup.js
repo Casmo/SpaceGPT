@@ -21,8 +21,12 @@ function addPowerup(x, y, type = "shootInterval") {
     render: function () {
       // Get the context of the canvas
       var ctx = canvas.getContext("2d");
-
-      ctx.fillStyle = this.color;
+      
+      if (this.type === 'speedUp') {
+        ctx.fillStyle = 'orange';
+      } else {
+        ctx.fillStyle = 'green';
+      }
       ctx.beginPath();
       ctx.moveTo(this.x, this.y - this.size);
       ctx.lineTo(this.x + this.size / 2, this.y + this.size / 2);
