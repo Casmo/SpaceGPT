@@ -67,19 +67,15 @@ var enemy = {
     // Get the context of the canvas
     var ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = "blue";
     ctx.beginPath();
-    ctx.moveTo(this.x, this.y);
-    ctx.lineTo(this.x + this.size, this.y + this.size / 2);
-    ctx.lineTo(this.x, this.y + this.size);
-    ctx.closePath();
+    ctx.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "white";
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
-    ctx.fillText(this.health, this.x + this.size / 2, this.y + this.size / 2);
-
+    ctx.fillText(this.health, this.x, this.y);
   },
 };
 
