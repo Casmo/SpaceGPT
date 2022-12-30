@@ -11,6 +11,8 @@ var enemy = {
   // Set the direction of the enemy
   direction: 1, // 1 = right, -1 = left
 
+  health: 0,
+
   // Define the update function
   update: function () {
     // Update the position of the enemy
@@ -34,13 +36,18 @@ var enemy = {
         this.y < bullet.y + bullet.size &&
         this.y + this.size > bullet.y
       ) {
-        // Remove the enemy and the bullet
-        removeEnemy(this);
+        this.health--;
+
         removeBullet(bullet);
-        addScore();
-        // Create an explosion of particles at the position of the enemy
-        createParticles(this.x, this.y, 20, "blue");
-        return;
+
+        if (this.health <= 0) {
+          // Remove the enemy and the bullet
+          removeEnemy(this);
+          addScore();
+          // Create an explosion of particles at the position of the enemy
+          createParticles(this.x, this.y, 20, "blue");
+          return;
+        }
       }
     }
     if (checkCollision(this, player)) {
@@ -87,6 +94,7 @@ function addEnemy() {
   // Set the position of the new enemy
   newEnemy.x = Math.random() * canvas.width;
   newEnemy.y = (Math.random() * canvas.height) / 2;
+  newEnemy.health = Math.floor(Math.random() * 5) + 1;
 
   // Add the new enemy to the enemies array
   enemies.push(newEnemy);
