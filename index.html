@@ -128,10 +128,11 @@
                     // Remove the powerup
                     removePowerup(powerup);
                 }
-
-                powerups[i].update();
-                if (powerups[i]) {
-                    powerups[i].render();
+                else {
+                    powerups[i].update();
+                    if (powerups[i]) {
+                        powerups[i].render();
+                    }
                 }
             }
             requestAnimationFrame(gameLoop);

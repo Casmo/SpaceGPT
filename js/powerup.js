@@ -1,5 +1,5 @@
 // Define the addPowerup function
-function addPowerup(x, y, type) {
+function addPowerup(x, y, type='shootInterval') {
   // Create a new powerup object
   var powerup = {
     // Set the size, speed, and color of the powerup
