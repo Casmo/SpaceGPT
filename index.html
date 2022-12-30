@@ -63,6 +63,7 @@
         var mouseDown = false;
         var mouseX = 0;
         var mouseY = 0;
+        let bulletSpeed = 10;
 
         function addScore(add) {
             add = add || 1;
@@ -156,7 +157,7 @@
             mouseX = event.clientX;
             mouseY = event.clientY;
         });
-        
+
         addEnemy();
 
     </script>

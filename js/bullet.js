@@ -14,14 +14,19 @@ function addBullet(direction) {
     // Define the update function
     update: function () {
       // Update the position of the bullet based on the direction and speed
-      this.x += Math.cos(this.direction) * this.speed;
-      this.y += Math.sin(this.direction) * this.speed;
+      this.x += Math.cos(this.direction) * bulletSpeed;
+      this.y += Math.sin(this.direction) * bulletSpeed;
 
       // Check if the bullet has reached the side or top/bottom of the screen
-  if (this.x + this.size > canvas.width || this.x < 0 || this.y + this.size > canvas.height || this.y < 0) {
-    // Remove the bullet from the bullets array
-    bullets.splice(bullets.indexOf(this), 1);
-  }
+      if (
+        this.x + this.size > canvas.width ||
+        this.x < 0 ||
+        this.y + this.size > canvas.height ||
+        this.y < 0
+      ) {
+        // Remove the bullet from the bullets array
+        bullets.splice(bullets.indexOf(this), 1);
+      }
     },
 
     // Define the render function
