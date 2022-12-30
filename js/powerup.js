@@ -5,7 +5,7 @@ function addPowerup(x, y) {
     // Set the size, speed, and color of the powerup
     size: 20,
     speed: 2,
-    color: "red",
+    color: "green",
 
     // Set the initial position and direction of the powerup
     x: x,
@@ -17,12 +17,13 @@ function addPowerup(x, y) {
       // Get the context of the canvas
       var ctx = canvas.getContext("2d");
 
-      // Set the fill color of the powerup
       ctx.fillStyle = this.color;
-
-      // Draw a filled circle at the current position of the powerup
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+      ctx.moveTo(this.x, this.y - this.size);
+      ctx.lineTo(this.x + this.size / 2, this.y + this.size / 2);
+      ctx.lineTo(this.x, this.y + this.size);
+      ctx.lineTo(this.x - this.size / 2, this.y + this.size / 2);
+      ctx.lineTo(this.x, this.y - this.size);
       ctx.fill();
     },
 
