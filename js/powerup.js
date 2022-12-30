@@ -1,5 +1,5 @@
 // Define the addPowerup function
-function addPowerup(x, y) {
+function addPowerup(x, y, type) {
   // Create a new powerup object
   var powerup = {
     // Set the size, speed, and color of the powerup
