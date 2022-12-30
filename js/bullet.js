@@ -1,5 +1,7 @@
 // Define the addBullet function
 function addBullet(direction) {
+
+  audio.play();
   // Create a new bullet object
   var bullet = {
     // Set the initial position of the bullet to the position of the player
