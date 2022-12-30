@@ -113,13 +113,27 @@
             }
 
             // Update and render the powerups
-            for (var i = 0; i < powerups.length; i++) {
+            for (let i = 0; i < powerups.length; i++) {
+                let powerup = powerups[i];
+
+                if (powerup.type === 'speedUp' && player.hits(powerup)) {
+                    bulletSpeed += 5;
+                    // Remove the powerup
+                    removePowerup(powerup);
+                } else if (powerup.type === 'shootInterval' && player.hits(powerup)) {
+                    player.shootInterval -= 100;
+                    if (player.shootInterval < 100) {
+                        player.shootInterval = 100;
+                    }
+                    // Remove the powerup
+                    removePowerup(powerup);
+                }
+
                 powerups[i].update();
                 if (powerups[i]) {
                     powerups[i].render();
                 }
             }
-
             requestAnimationFrame(gameLoop);
         }
 

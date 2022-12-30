@@ -40,28 +40,6 @@ var player = {
         player.canShoot = true;
       }, player.shootInterval);
     }
-
-    // Check if the player has hit a powerup
-    powerups.forEach(function (powerup) {
-      if (
-        player.x + player.size > powerup.x &&
-        player.x < powerup.x + powerup.size &&
-        player.y + player.size > powerup.y &&
-        player.y < powerup.y + powerup.size
-      ) {
-        // Remove the powerup
-        removePowerup(powerup);
-
-        // Decrease the shoot interval by 20
-        player.shootInterval -= 20;
-
-        // Clamp the shoot interval to a minimum of 100
-        player.shootInterval = Math.max(player.shootInterval, 100);
-        document.getElementById("shoot-interval").innerHTML = "Shoot interval: " + player.shootInterval;
-        // Increase the score
-        score++;
-      }
-    });
   },
 
   // Define the render function
@@ -91,5 +69,14 @@ var player = {
 
     // Restore the context
     ctx.restore();
+  },
+
+  hits: function (powerup) {
+    return (
+      this.x < powerup.x + powerup.size &&
+      this.x + this.size > powerup.x &&
+      this.y < powerup.y + powerup.size &&
+      this.y + this.size > powerup.y
+    );
   },
 };
